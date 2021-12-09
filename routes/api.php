@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrdersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('orders', [OrdersController::class, 'index'])->name('orders');
+
+Route::put('orders/{id}', [OrdersController::class, 'updateNotice'])->name('update-notice');
